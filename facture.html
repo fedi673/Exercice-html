@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Facture</title>
+  <link
+    href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css"
+    rel="stylesheet"
+  >
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="container my-4">
+    <div class="row">
+      <div class="col text-start">
+        <img src="logo.png" alt="Logo" class="logo">
+        <p class="fst-italic text-muted">[Slogan de la société]</p>
+      </div>
+      <div class="col text-end">
+          <div class="Entête"> 
+            <h1 class="text-success facture text-center">FACTURE</h1>
+            <p>Date : [entrez la date]</p>
+            <p>N° FACTURE : [100]</p>
+            <p>Date d'expiration : [entrez la date]</p>
+          </div> 
+          <div class="Informations-du-client">
+            <p class="fw-bold">À :</p>
+            <p>[Nom]</p>
+            <p>[Nom de la société]</p>
+            <p>[Adresse postale]</p>
+            <p>[Ville, code postal]</p>
+            <p>[Téléphone]</p>
+            <p>Réf client : [ABC12345]</p>
+          </div>
+      </div>
+    </div>
+    <!-- Champ de recherche et bouton -->
+    <!-- Je fais des valeurs pour bien verifier le boutton  -->
+    <div class="mb-3">
+      <input type="text" id="searchInput" class="form-control" placeholder="Rechercher un article...">
+      <button class="btn btn-primary mt-2" onclick="filterTable()">Rechercher</button>
+    </div>
+    <table class="tableau-des-articles table table-bordered">
+        <thead class="table-light">
+          <tr>
+            <th>Qté</th>
+            <th>N° article</th>
+            <th>Description</th>
+            <th>Prix unitaire</th>
+            <th>Total TTC</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>1</td>
+            <td>001</td>
+            <td>A</td>
+            <td>10DT</td>
+            <td>12DT</td>
+          </tr>
+          <tr>
+            <td>2</td>
+            <td>002</td>
+            <td>B</td>
+            <td>15DT</td>
+            <td>18DT</td>
+          </tr>
+          <tr>
+            <td>3</td>
+            <td>003</td>
+            <td>C</td>
+            <td>20DT</td>
+            <td>24DT</td>
+          </tr>
+        </tbody>
+      </table>
+    <div class="text-end mt-3">
+      <p>Sous-total : _____________</p>
+      <p>Taxes ventes : _____________</p>
+      <p>Total : _____________</p>
+    </div>
+    <!-- Section Devis préparé par et conditions -->
+    <p class="mt-5">
+      Devis préparé par : ____________________________________________________________
+    </p>
+    <p class="fst-italic">
+      Ceci est un devis des biens nommés, soumis aux conditions indiquées ci-dessous :
+      (Décrivez toutes les conditions liées à ces prix et toutes les conditions
+      supplémentaires de l'accord. Il est conseillé d'inclure les dépenses imprévues qui
+      affecteront le devis.)
+    </p>
+    <p> 
+          Pour accepter ce devis, <button type="button" class="btn btn-primary">Signez ici</button> et renvoyez-le : _____________________________________________
+    </p>
+
+    <!-- Footer -->
+    <footer class="text-center mt-5">
+      <p class="fw-bold">Merci de votre commande !</p>
+      <p>
+        ASTORM-GROUP | 58, Rue Olivier Metra | Paris 75020 |
+        Téléphone +33 1 83 62 61 14 | Télécopie 123 |
+        contact@astorm-group.com
+      </p>
+    </footer>
+  </div>
+
+  <script>
+    function filterTable() {
+      const input = document.getElementById("searchInput");
+      const filter = input.value.toLowerCase();
+      const table = document.querySelector(".tableau-des-articles");
+      const rows = table.getElementsByTagName("tr");
+
+      // Parcours des lignes du tableau (à partir de la deuxième ligne, car la première est l'en-tête)
+      for (let i = 1; i < rows.length; i++) {  
+        const cells = rows[i].getElementsByTagName("td");
+        let match = false;
+        
+        // Recherche dans chaque cellule de la ligne
+        for (let j = 0; j < cells.length; j++) {
+          const cell = cells[j];
+          if (cell.textContent.toLowerCase().indexOf(filter) > -1) {
+            match = true;
+            break;
+          }
+        }
+        
+        // Afficher ou masquer la ligne en fonction du filtrage
+        if (match) {
+          rows[i].style.display = "";
+        } else {
+          rows[i].style.display = "none";
+        }
+      }
+    }
+  </script>
+</body>
+</html>
