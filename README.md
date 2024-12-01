@@ -39,6 +39,10 @@ Ce projet utilise les fichiers Bootstrap via un CDN. Il n'est donc pas nécessai
 ## Technologies utilisées
 
   •    html : Structure de la page web.
+  
   •    CSS : Styles et mise en page. Utilisation de Bootstrap pour la responsivité.
+  
   •    JavaScript : Fonctionnalité de recherche dynamique pour filtrer les articles dans le tableau.
+  
   •    Bootstrap : Framework CSS pour une mise en page rapide et responsive.
+  
