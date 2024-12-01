@@ -1,4 +1,4 @@
-# Exercice-html pour ASTROM
+
 # Facture avec Recherche JavaScript
 
 Ce projet implémente une page de facture avec un tableau d'articles, un champ de recherche permettant de filtrer les articles du tableau en fonction des critères de recherche, et des fonctionnalités d'impression adaptées. Il utilise HTML, CSS, Bootstrap et JavaScript pour la mise en page et l'interactivité.
