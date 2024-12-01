@@ -34,7 +34,9 @@ Ce projet utilise les fichiers Bootstrap via un CDN. Il n'est donc pas nécessai
 ## Personnalisation
 
 •	Ajouter ou modifier des articles : Vous pouvez modifier les lignes dans le tableau directement dans le fichier index.html.
+
 •	Modifier le design : Vous pouvez ajouter ou ajuster des styles dans le fichier styles.css pour personnaliser l’apparence du projet.
+
 
 ## Technologies utilisées
 
