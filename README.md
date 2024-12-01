@@ -11,8 +11,11 @@ Ce projet implémente une page de facture avec un tableau d'articles, un champ d
 
 ## Structure du projet
 |– index.html         # Fichier HTML principal
+
 |– styles.css         # Fichier CSS personnalisé pour les styles supplémentaires
+
 |– README.md          # Ce fichier
+
 
 ## Prérequis
 
