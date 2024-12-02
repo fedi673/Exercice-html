@@ -10,9 +10,9 @@ Ce projet implémente une page de facture avec un tableau d'articles, un champ d
 - Responsive : Le tableau est entièrement responsive grâce à Bootstrap pour être lisible sur tous les appareils.
 
 ## Structure du projet
-|– index.html         # Fichier HTML principal
+|– facture.html         # Fichier HTML principal
 
-|– styles.css         # Fichier CSS personnalisé pour les styles supplémentaires
+|– style.css         # Fichier CSS personnalisé 
 
 |– README.md          # Ce fichier
 
@@ -33,9 +33,9 @@ Ce projet utilise les fichiers Bootstrap via un CDN. Il n'est donc pas nécessai
 
 ## Personnalisation
 
-•	Ajouter ou modifier des articles : Vous pouvez modifier les lignes dans le tableau directement dans le fichier index.html.
+•	Ajouter ou modifier des articles : Vous pouvez modifier les lignes dans le tableau directement dans le fichier facture.html.
 
-•	Modifier le design : Vous pouvez ajouter ou ajuster des styles dans le fichier styles.css pour personnaliser l’apparence du projet.
+•	Modifier le design : Vous pouvez ajouter ou ajuster des styles dans le fichier style.css pour personnaliser l’apparence du projet.
 
 
 ## Technologies utilisées
