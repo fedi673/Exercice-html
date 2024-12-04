@@ -8,7 +8,7 @@
     href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css"
     rel="stylesheet"
   >
-  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
   <div class="container my-4">
@@ -23,7 +23,9 @@
             <p>Date : [entrez la date]</p>
             <p>N° FACTURE : [100]</p>
             <p>Date d'expiration : [entrez la date]</p>
-          </div> 
+          </div>  
+          <br>
+          <br>
           <div class="Informations-du-client">
             <p class="fw-bold">À :</p>
             <p>[Nom]</p>
@@ -35,8 +37,8 @@
           </div>
       </div>
     </div>
+  </div>  
     <!-- Champ de recherche et bouton -->
-    <!-- Je fais des valeurs pour bien verifier le boutton  -->
     <div class="mb-3">
       <input type="text" id="searchInput" class="form-control" placeholder="Rechercher un article...">
       <button class="btn btn-primary mt-2" onclick="filterTable()">Rechercher</button>
@@ -56,22 +58,22 @@
             <td>1</td>
             <td>001</td>
             <td>A</td>
-            <td>10DT</td>
-            <td>12DT</td>
+            <td>18000</td>
+            <td>36000</td>
           </tr>
           <tr>
             <td>2</td>
             <td>002</td>
             <td>B</td>
-            <td>15DT</td>
-            <td>18DT</td>
+            <td>15000</td>
+            <td>30000</td>
           </tr>
           <tr>
             <td>3</td>
             <td>003</td>
             <td>C</td>
-            <td>20DT</td>
-            <td>24DT</td>
+            <td>20000</td>
+            <td>40000</td>
           </tr>
         </tbody>
       </table>
@@ -80,7 +82,6 @@
       <p>Taxes ventes : _____________</p>
       <p>Total : _____________</p>
     </div>
-    <!-- Section Devis préparé par et conditions -->
     <p class="mt-5">
       Devis préparé par : ____________________________________________________________
     </p>
@@ -93,8 +94,6 @@
     <p> 
           Pour accepter ce devis, <button type="button" class="btn btn-primary">Signez ici</button> et renvoyez-le : _____________________________________________
     </p>
-
-    <!-- Footer -->
     <footer class="text-center mt-5">
       <p class="fw-bold">Merci de votre commande !</p>
       <p>
@@ -103,37 +102,57 @@
         contact@astorm-group.com
       </p>
     </footer>
-  </div>
-
   <script>
-    function filterTable() {
-      const input = document.getElementById("searchInput");
-      const filter = input.value.toLowerCase();
-      const table = document.querySelector(".tableau-des-articles");
-      const rows = table.getElementsByTagName("tr");
+    document.addEventListener("DOMContentLoaded", () => {
+      formatTableNumbers();
 
-      // Parcours des lignes du tableau (à partir de la deuxième ligne, car la première est l'en-tête)
-      for (let i = 1; i < rows.length; i++) {  
-        const cells = rows[i].getElementsByTagName("td");
-        let match = false;
-        
-        // Recherche dans chaque cellule de la ligne
-        for (let j = 0; j < cells.length; j++) {
-          const cell = cells[j];
-          if (cell.textContent.toLowerCase().indexOf(filter) > -1) {
-            match = true;
-            break;
+      function formatNumber(value) {
+        return Number(value)
+          .toFixed(1) 
+          .replace(/\B(?=(\d{3})+(?!\d))/g, " ");
+      }
+
+      function formatTableNumbers() {
+        const table = document.querySelector(".tableau-des-articles tbody");
+        const rows = table.getElementsByTagName("tr");
+
+        for (let i = 0; i < rows.length; i++) {
+          const cells = rows[i].getElementsByTagName("td");
+
+          // Cellule du prix unitaire
+          if (cells[3]) {
+            const unitPrice = cells[3].textContent.trim();
+            cells[3].textContent = `${formatNumber(unitPrice)} DT`;
+          }
+
+          // Cellule du total TTC
+          if (cells[4]) {
+            const total = cells[4].textContent.trim();
+            cells[4].textContent = `${formatNumber(total)} DT`;
           }
         }
-        
-        // Afficher ou masquer la ligne en fonction du filtrage
-        if (match) {
-          rows[i].style.display = "";
-        } else {
-          rows[i].style.display = "none";
+      }
+
+      function filterTable() {
+        const input = document.getElementById("searchInput");
+        const filter = input.value.toLowerCase();
+        const table = document.querySelector(".tableau-des-articles");
+        const rows = table.getElementsByTagName("tr");
+
+        for (let i = 1; i < rows.length; i++) {
+          const cells = rows[i].getElementsByTagName("td");
+          let match = false;
+          for (let j = 0; j < cells.length; j++) {
+            const cell = cells[j];
+            if (cell.textContent.toLowerCase().indexOf(filter) > -1) {
+              match = true;
+              break;
+            }
+          }
+          rows[i].style.display = match ? "" : "none";
         }
       }
-    }
+    });
   </script>
 </body>
 </html>
