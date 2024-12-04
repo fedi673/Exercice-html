@@ -1,102 +1,93 @@
-.logo {
-  width: 150px;
-}
-
-h1 {
-  font-size: 2.5rem;
-  font-weight: 700;
-}
-
-table {
-  background-color: #f8f9fa;
-}
-
-.facture {
-  text-align: center;
-}
-
-/* Code ajouté pour centrer exactement le mot "FACTURE" */
-.titre-centre {
-  position: absolute;
-  left: 50%;
-  transform: translateX(-50%);
-  text-align: center;
-  margin: 0;
-}
-
-.Entête {
-  position: relative;
-  height: 100px; /* Ajustez selon vos besoins */
-}
-
-footer {
-  font-size: 0.9rem;
-  color: #6c757d;
-}
-
-/* Styles spécifiques à l'impression */
-@media print {
-  /* Masquer les éléments inutiles pendant l'impression */
-  .logo, .btn, .text-end, footer {
-    display: none;
+<style>
+  .logo {
+    width: 150px;
   }
-
-  /* S'assurer que le tableau occupe toute la largeur disponible */
-  .tableau-des-articles {
-    width: 100%;
-    border-collapse: collapse;
+  h1 {
+    font-size: 2.5rem;
+    font-weight: 700;
   }
-
-  /* Styles pour les cellules du tableau */
-  .tableau-des-articles th, .tableau-des-articles td {
-    padding: 8px;
-    text-align: left;
-    border: 1px solid #000;
+  table {
+    background-color: #f8f9fa;
+    border-collapse: collapse; 
   }
-
-  /* Ajuster les tailles de police pour l'impression */
-  body {
-    font-size: 12px;
+  .facture {
+    text-align: center;
   }
-
-  h1, h2 {
-    font-size: 16px;
-  }
-
-  /* Ajouter un peu de marge autour de l'impression pour la lisibilité */
-  .container {
+  .titre-centre {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    text-align: center;
     margin: 0;
-    padding: 10px;
   }
-
-  /* Forcer les marges spécifiques pour les sections importantes */
-  .Entête, .Informations-du-client {
+  .Entête {
+    position: relative;
+    height: 100px;
     margin-bottom: 20px;
   }
-
-  /* Appliquer une couleur de fond claire et un contraste sur le texte */
-  .table-light {
-    background-color: #f4f4f4;
-  }
-
-  /* Gérer les boutons pour l'impression */
-  .btn {
-    display: none;
-  }
-
-  /* Garder les sections de total visible et bien espacées */
-  .text-end.mt-3 {
-    margin-top: 15px;
-  }
-
-  /* Masquer les champs de signature */
-  .fst-italic {
-    font-style: normal;
-  }
-
-  /* Assurer que le footer est visible mais de manière réduite */
   footer {
-    font-size: 10px;
-    margin-top: 20px;
+    font-size: 0.9rem;
+    color: #6c757d;
   }
-}
+  .tableau-des-articles th,
+  .tableau-des-articles td {
+    text-align: center; 
+    vertical-align: middle; 
+    padding: 10px;
+    border: 1px solid #dee2e6;
+  }
+  .tableau-des-articles th {
+    background-color: #e9ecef;
+    font-weight: bold;
+  }
+  .text-end.mt-3 p {
+    font-weight: bold;
+    color: #495057;
+  }
+  .td[data-format="currency"] {
+    font-family: "Courier New", Courier, monospace; 
+    letter-spacing: 0.5px; 
+  }
+  .@media print {
+    .logo, .btn, .text-end, footer {
+      display: none;
+    }
+    .tableau-des-articles {
+      width: 100%;
+      border-collapse: collapse;
+    }
+    .tableau-des-articles th, .tableau-des-articles td {
+      padding: 8px;
+      text-align: center; 
+      vertical-align: middle; 
+      border: 1px solid #000;
+    }
+    body {
+      font-size: 12px;
+    }
+
+    h1, h2 {
+      font-size: 16px;
+    }
+    .container {
+      margin: 0;
+      padding: 10px;
+    }
+    .Entête, .Informations-du-client {
+      margin-bottom: 20px;
+    }
+    .table-light {
+      background-color: #f4f4f4;
+    }
+    .fst-italic {
+      font-style: normal;
+    }
+    .text-end.mt-3 {
+      margin-top: 15px;
+    }
+    footer {
+      font-size: 10px;
+      margin-top: 20px;
+    }
+  }
+</style>
